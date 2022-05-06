@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7ea3d91-e621-4179-80b9-59fda8fc8b81" name="Default Changelist" comment="" />
+    <list default="true" id="d7ea3d91-e621-4179-80b9-59fda8fc8b81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/RadioItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data.js" afterDir="false" />
+    </list>
     <list id="72352233-4a22-48bd-b627-b2107498bb93" name="Revert &quot;testovoe start&quot;" comment="Revert &quot;testovoe start&quot;&#10;&#10;This reverts commit bf10ae7e" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +33,11 @@
         <entry key="$PROJECT_DIR$/frontend" value="9b8e61d2aeaf0b5a830845c22e4083567e62fbb3" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="28hBXxMKWoWdVUQZvqTfsKtX1yw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,6 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -51,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651658981158</updated>
-      <workItem from="1651658982417" duration="11441000" />
+      <workItem from="1651658982417" duration="26753000" />
     </task>
     <task id="LOCAL-00001" summary="testovoe start">
       <created>1651763348722</created>
@@ -67,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651763735370</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="start testovoe">
+      <created>1651765822435</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1651765822436</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +114,7 @@
     </ignored-roots>
     <MESSAGE value="testovoe start" />
     <MESSAGE value="testovoe 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="testovoe 1" />
+    <MESSAGE value="start testovoe" />
+    <option name="LAST_COMMIT_MESSAGE" value="start testovoe" />
   </component>
 </project>
