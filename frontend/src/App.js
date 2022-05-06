@@ -1,35 +1,26 @@
 //import logo from './logo.svg';
 import React from 'react';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import './index.css';
 import data from './data';
-import Working from "./components/Working";
-import Home from "./components/Home";
 import Header from "./components/Header";
-import RequestForm from "./components/RequestForm";
 import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
+import WorkingScreen from "./screens/WorkingScreen";
 
 function App() {
     return (
-        <div>
+
+        <BrowserRouter>
 
             <header className="header">
                 <Header header={data.header}></Header>
             </header>
 
-            <main className="main">
-                <section className="home">
-                    <Home homeBlock={data.homeBlock}></Home>
-                </section>
-
-                <section className="people" id="speople">
-                    <Working working={data.working}></Working>
-                </section>
-
-                <section className="request" id="srequest">
-                    <RequestForm request={data.request}></RequestForm>
-                </section>
-
-            </main>
+            <Routes>
+                <Route path="/" element={<HomeScreen/>} exact />
+                <Route path="/working/:id" element={<WorkingScreen />} />
+            </Routes>
 
             <footer className="footer">
                 <Footer title={data.footerTitle}></Footer>
@@ -38,8 +29,9 @@ function App() {
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
             <script src="js/all.js"></script>
 
-        </div>
-);
+
+        </BrowserRouter>
+    );
 }
 
 export default App;

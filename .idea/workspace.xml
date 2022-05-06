@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7ea3d91-e621-4179-80b9-59fda8fc8b81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/RadioItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data.js" afterDir="false" />
     </list>
@@ -67,7 +63,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651658981158</updated>
-      <workItem from="1651658982417" duration="26753000" />
+      <workItem from="1651658982417" duration="28458000" />
+      <workItem from="1651851818090" duration="2570000" />
     </task>
     <task id="LOCAL-00001" summary="testovoe start">
       <created>1651763348722</created>
@@ -90,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651765822436</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testovoe step 1">
+      <created>1651848765520</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651848765520</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +110,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -115,6 +120,7 @@
     <MESSAGE value="testovoe start" />
     <MESSAGE value="testovoe 1" />
     <MESSAGE value="start testovoe" />
-    <option name="LAST_COMMIT_MESSAGE" value="start testovoe" />
+    <MESSAGE value="testovoe step 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 1" />
   </component>
 </project>

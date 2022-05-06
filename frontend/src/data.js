@@ -2,7 +2,7 @@ const data = {
     footerTitle:'© Copyright © inogda, 2022 Все права защищены',
     header: {
         title:'Home',
-        logo:'./img/logo.svg',
+        logo: '/img/logo.svg',
         buttonLeft:'Users',
         buttonRight:'Sign up',
     },
