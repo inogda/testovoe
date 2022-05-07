@@ -3,7 +3,7 @@ import data from "../data";
 import {Link, useParams} from "react-router-dom";
 
 
-function (props) {
+function WorkingScreen(props) {
 
 
     const params=useParams();

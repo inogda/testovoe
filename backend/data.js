@@ -20,7 +20,7 @@ const data = {
         workingItem: [
             {
                 _id:'1',
-                name:'Salvador Stewart Flynn Thomas Salva Salve',
+                name:'1Salvador Stewart Flynn Thomas Salva Salve',
                 email:'frontend_develop@gmail.com',
                 phone:'+38 (098) 278 44 24',
                 position:'Leading specialist of the department of center of center',

@@ -3,7 +3,6 @@ import Home from "../components/Home";
 import data from "../data";
 import Working from "../components/Working";
 import RequestForm from "../components/RequestForm";
-import {BrowserRouter} from "react-router-dom";
 
 function HomeScreen(props) {
     return (
@@ -13,7 +12,7 @@ function HomeScreen(props) {
             </section>
 
             <section className="people" id="speople">
-                <Working working={data.working}></Working>
+                <Working title={data.working.title} ></Working>
             </section>
 
             <section className="request" id="srequest">
