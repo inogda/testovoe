@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import WorkingItem from "./WorkingItem";
-import axios from "axios";
+import axios from 'axios-proxy-fix';
 import LoadingBox from "./LoadingBox";
 import MessageBox from "./MessageBox";
 
@@ -15,9 +15,28 @@ function Working(props) {
         const fecthData = async () => {
             try {
                 setLoading(true);
-                const {data} = await axios.get('/rest/working');
-                setLoading(false);
-                setWorking(data);
+                //const {data} = await axios.get('http://127.0.0.1:5000/rest/working', { withCredentials: true });
+
+                const {data} = await axios.get('https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287');
+                //console.log(data);
+
+
+                //const {data} = await
+                //    axios({
+                //        method: 'get',
+                //        url: 'https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287',
+                //        withCredentials: true,
+                //        headers: {
+                //            "Access-Control-Allow-Origin": "*",
+                //            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+                //            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
+                //            "Access-Control-Allow-Credentials": true,
+                //        },
+                //        responseType: "json",
+                //    });
+
+                    setLoading(false);
+                setWorking(data.results);
             } catch (err) {
                 setError(err.message);
                 setLoading(false);
@@ -40,9 +59,8 @@ function Working(props) {
                 <div>
                     <div className="people__list">
                         {working.map((working) => (
-                            <WorkingItem key={working._id} working={working}></WorkingItem>
+                            <WorkingItem key={working.id} working={working}></WorkingItem>
                         ))}
-
                     </div>
                     <div className="people__btn btn-120">
                         <a href="#" className="a-btn a-btn-active">Show more</a>

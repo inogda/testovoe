@@ -1,45 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7ea3d91-e621-4179-80b9-59fda8fc8b81" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/LoadingBox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/MessageBox.js" afterDir="false" />
+    <list default="true" id="14ea80c0-e316-4b1f-bc7d-3890f1dca9bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Working.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
-    <list id="72352233-4a22-48bd-b627-b2107498bb93" name="Revert &quot;testovoe start&quot;" comment="Revert &quot;testovoe start&quot;&#10;&#10;This reverts commit bf10ae7e" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/frontend" value="9b8e61d2aeaf0b5a830845c22e4083567e62fbb3" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
-  <component name="ProjectId" id="28hBXxMKWoWdVUQZvqTfsKtX1yw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="28yA8n8wu6i1TTCayatqGEO513f" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,107 +32,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\www\react\testovoe" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d7ea3d91-e621-4179-80b9-59fda8fc8b81" name="Default Changelist" comment="" />
-      <created>1651658981158</created>
+      <changelist id="14ea80c0-e316-4b1f-bc7d-3890f1dca9bd" name="Default Changelist" comment="" />
+      <created>1652178303207</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1651658981158</updated>
-      <workItem from="1651658982417" duration="28458000" />
-      <workItem from="1651851818090" duration="5836000" />
-      <workItem from="1651902962522" duration="9220000" />
+      <updated>1652178303207</updated>
+      <workItem from="1652178305395" duration="1049000" />
+      <workItem from="1652179792385" duration="9268000" />
     </task>
-    <task id="LOCAL-00001" summary="testovoe start">
-      <created>1651763348722</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1651763348722</updated>
-    </task>
-    <task id="LOCAL-00002" summary="testovoe 1">
-      <created>1651763735370</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1651763735370</updated>
-    </task>
-    <task id="LOCAL-00003" summary="start testovoe">
-      <created>1651765822435</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1651765822436</updated>
-    </task>
-    <task id="LOCAL-00004" summary="testovoe step 1">
-      <created>1651848765520</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1651848765520</updated>
-    </task>
-    <task id="LOCAL-00005" summary="testovoe step 2 Routes">
-      <created>1651854578936</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1651854578937</updated>
-    </task>
-    <task id="LOCAL-00006" summary="testovoe step 3 WorkingScreen">
-      <created>1651857403934</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1651857403934</updated>
-    </task>
-    <task id="LOCAL-00007" summary="testovoe step 4 API server">
-      <created>1651905406807</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1651905406807</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-      <path value="$PROJECT_DIR$/frontend" />
-    </ignored-roots>
-    <MESSAGE value="testovoe start" />
-    <MESSAGE value="testovoe 1" />
-    <MESSAGE value="start testovoe" />
-    <MESSAGE value="testovoe step 1" />
-    <MESSAGE value="testovoe step 2 Routes" />
-    <MESSAGE value="testovoe step 3 WorkingScreen" />
-    <MESSAGE value="testovoe step 4 API server" />
-    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 4 API server" />
   </component>
 </project>

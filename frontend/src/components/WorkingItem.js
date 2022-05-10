@@ -3,7 +3,7 @@ import React from 'react';
 function WorkingItem(props) {
     const { working } = props;
     return (
-        <div key={working._id} className="list-item">
+        <div key={working.id} className="list-item">
             <a href={`/working/${working._id}`}>
                 <img className="list-item-img" src={working.photo}
                      alt={working.name}/>

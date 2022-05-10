@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactLogo from '../img/Logo.svg';
 
 function Header(props) {
     const { header } = props;
@@ -7,7 +8,7 @@ function Header(props) {
             <div className="header-row">
                 <div className="header-row__logo">
                     <a href="/" title={header.title}>
-                        <img src={header.logo} alt="logo"/>
+                        <ReactLogo/>
                     </a>
                 </div>
                 <div className="header-row__login">

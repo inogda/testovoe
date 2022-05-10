@@ -1,7 +1,13 @@
 import express from 'express';
 import data from './data.js';
 
+//import cors from 'cors';
+//const cors = require('cors');
 const app = express();
+
+//app.use( cors() );
+
+
 
 app.get('/rest/working', (req, res) => {
     res.send(data.working.workingItem);
