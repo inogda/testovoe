@@ -1,44 +1,65 @@
-import React from 'react';
-import data from "../data";
+import React, {useEffect} from 'react';
 import {Link, useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import {detailsWorking} from "../actions/workingActions";
 
 
 function WorkingScreen(props) {
 
 
+    //const params=useParams();
+    //const productId=params.id;
+    //const navigate=useNavigate();
+    //const productId=1;
+
+    const dispatch = useDispatch();
     const params=useParams();
     const productId=params.id;
-    //const navigate=useNavigate();
 
+    const workingDetails = useSelector((state) => state.workingDetails);
+    const { loading, error, details } = workingDetails;
 
-    const workingItem = data.working.workingItem.find((x) => x._id === productId);
-    if (!workingItem) {
-        return <div>Not Found</div>;
-    }
+    useEffect(() => {
+        dispatch( detailsWorking(productId) );
+    }, [dispatch, productId]);
 
     return (
         <div className="list-item">
             <Link to="/" className="btn-100">
                 <div className="a-btn a-btn-active">Back</div>
             </Link>
-            <div>
-                <img className="list-item-img" src={workingItem.photo}
-                     alt={workingItem.name}/>
-                <h3 className="list-item-name">
-                    {workingItem.name}
-                </h3>
-                <div className="list-item-comtent">
-                    <p className="list-item-position">
-                        {workingItem.position}
-                    </p>
-                    <p className="list-item-mail">
-                        {workingItem.email}
-                    </p>
-                    <p className="list-item-phone">
-                        {workingItem.phone}
-                    </p>
+
+            {loading ? (
+                <LoadingBox></LoadingBox>
+            ) : error ? (
+                <MessageBox variant="error">{error}</MessageBox>
+            ) : (
+                <div>
+                    <img className="list-item-img" src={details.photo}
+                         alt={details.name}/>
+                    <h3 className="list-item-name">
+                        {details.name}
+                    </h3>
+                    <div className="list-item-comtent">
+                        <p className="list-item-position">
+                            {details.position}
+                        </p>
+                        <p className="list-item-mail">
+                            {details.email}
+                        </p>
+                        <p className="list-item-phone">
+                            {details.phone}
+                        </p>
+                    </div>
                 </div>
-            </div>
+            )}
+
+
+
+
         </div>
     );
 }

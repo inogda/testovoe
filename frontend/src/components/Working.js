@@ -1,49 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import WorkingItem from "./WorkingItem";
-import axios from 'axios-proxy-fix';
 import LoadingBox from "./LoadingBox";
 import MessageBox from "./MessageBox";
+import {useDispatch, useSelector} from "react-redux";
+import {listWorking} from "../actions/workingActions";
 
 function Working(props) {
     const { title } = props;
 
-    const [working, setWorking] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const dispatch = useDispatch();
+    const workingList = useSelector((state) => state.workingList);
+    const { loading, error, working } = workingList;
 
     useEffect(() => {
-        const fecthData = async () => {
-            try {
-                setLoading(true);
-                //const {data} = await axios.get('http://127.0.0.1:5000/rest/working', { withCredentials: true });
+        dispatch( listWorking() );
+    }, [dispatch]);
 
-                const {data} = await axios.get('https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287');
-                //console.log(data);
-
-
-                //const {data} = await
-                //    axios({
-                //        method: 'get',
-                //        url: 'https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287',
-                //        withCredentials: true,
-                //        headers: {
-                //            "Access-Control-Allow-Origin": "*",
-                //            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-                //            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
-                //            "Access-Control-Allow-Credentials": true,
-                //        },
-                //        responseType: "json",
-                //    });
-
-                    setLoading(false);
-                setWorking(data.results);
-            } catch (err) {
-                setError(err.message);
-                setLoading(false);
-            }
-        };
-        fecthData();
-    }, [])
 
     return (
         <div className="container">
@@ -58,8 +30,8 @@ function Working(props) {
             ) : (
                 <div>
                     <div className="people__list">
-                        {working.map((working) => (
-                            <WorkingItem key={working.id} working={working}></WorkingItem>
+                        {working.map((workingitem) => (
+                            <WorkingItem key={workingitem.id} working={workingitem}></WorkingItem>
                         ))}
                     </div>
                     <div className="people__btn btn-120">
