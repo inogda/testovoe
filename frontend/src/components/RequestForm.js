@@ -72,7 +72,7 @@ function RequestForm(props) {
                 </ul>
 
                 <div className="request__btn btn-100">
-                    <a href="#" className="a-btn a-btn-disable">Sign up</a>
+                    <button className="a-btn a-btn-disable">Sign up</button>
                 </div>
             </form>
 

@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14ea80c0-e316-4b1f-bc7d-3890f1dca9bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/reducers/workingdetailsReducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="6da3216f-bdf5-4229-8be4-91742c960ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/js/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/js/all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/LoadingBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoadingBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MessageBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MessageBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/RadioItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RadioItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Working.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/workingdetailsReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/workingdetailsReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="28yA8n8wu6i1TTCayatqGEO513f" />
+  <component name="ProjectId" id="29DN0yhcaRLyS7XASioChRJcHwv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -43,68 +52,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/src/actions" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\www\react\testovoe\frontend\src\actions" />
-      <recent name="F:\www\react\testovoe\frontend\src\reducers" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="14ea80c0-e316-4b1f-bc7d-3890f1dca9bd" name="Default Changelist" comment="" />
-      <created>1652178303207</created>
+      <changelist id="6da3216f-bdf5-4229-8be4-91742c960ba1" name="Default Changelist" comment="" />
+      <created>1652643479956</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1652178303207</updated>
-      <workItem from="1652178305395" duration="1049000" />
-      <workItem from="1652179792385" duration="22737000" />
-      <workItem from="1652422740376" duration="27183000" />
-      <workItem from="1652518717270" duration="17385000" />
+      <updated>1652643479956</updated>
+      <workItem from="1652643481609" duration="2372000" />
+      <workItem from="1652646013565" duration="24935000" />
     </task>
-    <task id="LOCAL-00001" summary="testovoe step 6 build webpack">
-      <created>1652190640749</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1652190640749</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="testovoe step 6 build webpack" />
-    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 6 build webpack" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/index.js</url>
-          <line>4</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

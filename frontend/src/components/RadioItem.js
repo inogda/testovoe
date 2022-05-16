@@ -9,7 +9,7 @@ function RadioItem(props) {
                 type="radio"
                 name="radio"
                 id={`radio${radioItem._id}`}
-                defaultChecked={radioItem._id == 1? "checked": null}
+                defaultChecked={radioItem._id === 1? "checked": null}
             />
             <label htmlFor={`radio${radioItem._id}`}>
                 {radioItem.radiotext}-
