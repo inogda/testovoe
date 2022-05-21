@@ -7,12 +7,17 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import WorkingScreen from "./screens/WorkingScreen";
+import {Helmet} from "react-helmet";
 
 function App() {
     return (
 
-        <BrowserRouter>
 
+        <BrowserRouter>
+            {/*<Helmet>
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+                <script type="text/javascript" src="/js/all2.js"></script>
+            </Helmet>*/}
             <header className="header">
                 <Header header={data.header}></Header>
             </header>

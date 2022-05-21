@@ -20,6 +20,8 @@ export const listWorking = (
     setFetching
     ) => async (dispatch) => {
 
+
+
     //console.log('scrool ' + currentPage + '-' + fetching);
     dispatch({type: WORKING_LIST_REQUEST});
 
@@ -39,7 +41,7 @@ export const listWorking = (
             });
             setTotalPage(data.total);
 
-console.log('scrool ' + totalPage );
+//console.log('scrool ' + totalPage );
 
             //const { data } = await axios.get('https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287');
             //console.log('scrool ' + currentPage + '-' + data.total/currentItem );

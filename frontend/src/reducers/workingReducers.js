@@ -8,7 +8,12 @@ import {
 
 
 export const workingListReducer = (
-    state= { loading: true, working: [] },
+    state= {
+        loading: true,
+        working: [],
+        currentItem: 6,
+        currentNone: true
+    },
     action
 ) => {
     const item = action.payload;

@@ -5,14 +5,22 @@ import MessageBox from "./MessageBox";
 import {useDispatch, useSelector} from "react-redux";
 import {listWorking} from "../actions/workingActions";
 
+
+
 function Working(props) {
+
     const { title } = props;
 
     const dispatch = useDispatch();
     const workingList = useSelector((state) => state.workingList);
+
+    //const pageSize = useSelector((state) => state.pageSize);
+    const currentItem = useSelector(state => state.workingList.currentItem); // кол-во выводимых за раз пользователей
+
+
     const { loading, error, working } = workingList;
 
-    const [currentItem] = useState(6);      // кол-во выводимых за раз пользователей
+//    const [currentItem] = useState(6);      // кол-во выводимых за раз пользователей
     const [totalPage, setTotalPage] = useState(0);          // кол-во полученных пользователей
     const [currentPage, setCurrentPage] = useState(0);      // текущая страница
     const [currentEnd, setCurrentEnd] = useState(true);     // флаг последней страницы ставим false
@@ -43,7 +51,7 @@ function Working(props) {
         if(currentPage !== 0 && pageActive <= currentPage+1 ) {
             setCurrentNone(false);                              // устанавливаем признак не вывода кнопки
         }
-        debugger;
+        //debugger;
 
         console.log('currentPage ' + currentPage + '-' + currentNone );
 
@@ -52,31 +60,33 @@ function Working(props) {
         console.log('scrool');
     }
 
-
-
-
     return (
         <div className="container">
             <h2 className="people__title">
                 {title}
             </h2>
+            <div>
+                {loading ? (
+                    <LoadingBox></LoadingBox>
+                ) : error ? (
+                    <MessageBox variant="error">{error}</MessageBox>
+                ) : (
 
-            {loading ? (
-                <LoadingBox></LoadingBox>
-            ) : error ? (
-                <MessageBox variant="error">{error}</MessageBox>
-            ) : (
-                <div>
-                    <div className="people__list">
-                        {working.map((workingitem) => (
-                            <WorkingItem key={workingitem.id} working={workingitem}></WorkingItem>
-                        ))}
-                    </div>
-                    <div className={`people__btn btn-120 ${currentNone ? '' : 'none'}`}>
-                        <button onClick={scroolButton} className="a-btn a-btn-active">Show more</button>
-                    </div>
-                </div>
-            )}
+                        <div className="people__list">
+                            {working.map((workingitem) => (
+                                <WorkingItem key={workingitem.id} working={workingitem}></WorkingItem>
+                            ))}
+                        </div>
+                )}
+                {currentNone ? (
+                        <div className="people__btn btn-120">
+                            <button onClick={scroolButton} className="a-btn a-btn-active">Show more</button>
+                        </div>
+
+                ) : null}
+
+            </div>
+
         </div>
     );
 }
