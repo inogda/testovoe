@@ -33,6 +33,7 @@ function MyForm(props) {
     const {
         register,
         handleSubmit,
+        reset,
         formState: {errors},
     } = useForm({mode: "onChange"});
 
@@ -114,6 +115,8 @@ function MyForm(props) {
         let scroll = document.getElementById('scrolledBlock');
         scroll.scrollIntoView();
 
+
+        reset({ name: '',  email: '',  phone: '',  radio: '',  file: '', })
         setNameInput('');
         setEmailInput('');
         setPhoneInput('');

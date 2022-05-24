@@ -1,5 +1,6 @@
 import React from 'react';
-//import ReactLogo from '../img/Logo.svg';<ReactLogo/>
+//import ReactLogo from '../../public/img/Logo.svg';<ReactLogo/>
+//<img src={header.logo} alt="logo"/>
 
 function Header(props) {
     const { header } = props;
