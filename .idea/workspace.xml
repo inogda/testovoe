@@ -2,22 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6da3216f-bdf5-4229-8be4-91742c960ba1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/js/all2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/RadioItem.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Working.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +60,10 @@
       <workItem from="1652643481609" duration="2372000" />
       <workItem from="1652646013565" duration="44491000" />
       <workItem from="1652942376985" duration="21239000" />
-      <workItem from="1653034135489" duration="29180000" />
+      <workItem from="1653034135489" duration="51096000" />
+      <workItem from="1653223082938" duration="101000" />
+      <workItem from="1653223214554" duration="160000" />
+      <workItem from="1653223382442" duration="62166000" />
     </task>
     <task id="LOCAL-00001" summary="testovoe step 8 pagination">
       <created>1652705391332</created>
@@ -79,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652705391332</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="testovoe step 9 form validate">
+      <created>1653119621724</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653119621724</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,7 +99,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testovoe step 8 pagination" />
-    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 8 pagination" />
+    <MESSAGE value="testovoe step 9 form validate" />
+    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 9 form validate" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/Working.js</url>
+          <line>39</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -4,59 +4,54 @@ import {
     WORKING_DETAILS_SUCCESS,
     WORKING_LIST_FAIL,
     WORKING_LIST_REQUEST,
-    WORKING_LIST_SUCCESS
+    WORKING_LIST_SUCCESS, WORKING_SET_FETCHING,
+    WORKING_SET_TOTAL_PAGE
 } from "../constants/workingConstants";
 import axios from "axios-proxy-fix";
-//import {useState} from "react";
 
 
 export const listWorking = (
     currentItem,
-    currentEnd,
-    totalPage,
-    setTotalPage,
-    currentPage,
+    current_End,
+    current_Page,
     fetching,
-    setFetching
     ) => async (dispatch) => {
 
 
-
-    //console.log('scrool ' + currentPage + '-' + fetching);
+    //console.log('scrool ' + current_Page + '-' + fetching);
     dispatch({type: WORKING_LIST_REQUEST});
 
     try {
-        if(fetching === true && currentEnd === true) {
+        if(fetching === true && current_End === true) {
 
             // если асинхронній запрос успешний то делаю диспатч на вывод данных
             const { data } = await axios({
                 method: 'get',
                 url: 'https://ino.pp.ua/rest/working',
-                headers: { 'Content-Type': 'application/json', },
+                headers: { 'Content-Type': 'application/json', 'Content-Language': 'en, ase, ua', },
                 params: {
-                    p: 'Piondolgidra.Zvadwiensda-287',
-                    start: currentPage*currentItem,
+                    p: 'PiozdolgiduMRZvadwienudaW287Q==',
+                    start: current_Page*currentItem,
                     limit: currentItem,
                 }
             });
-            setTotalPage(data.total);
-
-//console.log('scrool ' + totalPage );
+            dispatch({type: WORKING_SET_TOTAL_PAGE, payload: data.total });
 
             //const { data } = await axios.get('https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287');
-            //console.log('scrool ' + currentPage + '-' + data.total/currentItem );
+            //console.log('scrool ' + current_Page + '-' + data.total/currentItem );
 
-            dispatch({type: WORKING_LIST_SUCCESS, payload: data.results })
+            dispatch({type: WORKING_LIST_SUCCESS, payload: data.results });
         }else{
-            dispatch({type: WORKING_LIST_SUCCESS, payload: [] })
+            dispatch({type: WORKING_LIST_SUCCESS, payload: [] });
         }
-
+        //debugger;
 
     } catch (error) {
         // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки
-        dispatch({type: WORKING_LIST_FAIL, payload: error.message })
+        dispatch({type: WORKING_LIST_FAIL, payload: error.message });
     } finally {
-        setFetching(false);
+        dispatch({type: WORKING_SET_FETCHING, payload: false });
+        //setFetching(false);
     }
 }
 
@@ -70,14 +65,14 @@ export const detailsWorking = (productId) => async (dispatch) => {
             method: 'get',
             url: `https://ino.pp.ua/rest/working/${productId}`,
             //url: `https://ino.pp.ua/rest/working/1`,
-            headers: { 'Content-Type': 'application/json', },
-            params: { p: 'Piondolgidra.Zvadwiensda-287' }
+            headers: { 'Content-Type': 'application/json', 'Content-Language': 'en, ase, ua', },
+            params: { p: 'PiozdolgiduMRZvadwienudaW287Q==' }
         });
 
-        dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.object })
+        dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.object });
 
     } catch (error) {
         // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки
-        dispatch({type: WORKING_DETAILS_FAIL, payload: error.message })
+        dispatch({type: WORKING_DETAILS_FAIL, payload: error.message });
     }
 }
