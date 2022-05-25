@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useForm} from "react-hook-form";
 import InputMask from "react-input-mask";
 import axios from "axios-proxy-fix";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import {
     WORKING_LIST_CLEAR,
     WORKING_SET_CURRENT_END,
@@ -10,10 +10,14 @@ import {
     WORKING_SET_CURRENT_PAGE,
     WORKING_SET_FETCHING,
 } from "../constants/workingConstants";
+import LoadingBox from "./LoadingBox";
 
 
 
 function RequestForm(props) {
+
+
+
     const { request } = props;
     return (
         <div className="container">
@@ -37,20 +41,51 @@ function MyForm(props) {
         formState: {errors},
     } = useForm({mode: "onChange"});
 
+    const dispatch = useDispatch();
+
+
+
+
+
+    const [positions, setPositions] = useState();
+
+    useEffect(() => {
+        const apiUrl = 'https://frontend-test-assignment-api.abz.agency/api/v1/positions';
+        axios.get(apiUrl).then((resp) => {
+            const allPersons = resp.data;
+            setPositions(allPersons);
+        });
+    }, [setPositions]);
+
+
+    //console.log(positions);
+
+
+    //debugger;
+
+
+
 
 
     const [nameInput, setNameInput]   = useState('');     // задали поле ввода input для name
     const [emailInput, setEmailInput] = useState('');     // задали поле ввода input для email
     const [phoneInput, setPhoneInput] = useState('');     // задали поле ввода input для phone
-    const [radio,setRadio] = useState('Frontend developer'); // задали поле ввода input для radio
 
 
-    //debugger;
+
+    const [radio,setRadio] = useState(1); // задали поле ввода input для radio
+
+
+
+
+
+//console.log(respost.data);
+
 
     const [image, setImage] = useState();
     const [namePhoto, setNamePhoto] = useState();
     const [messagePhoto, setMessagePhoto] = useState(true);
-    const dispatch = useDispatch();
+
 
     const convert2base64 = file => {
         const reader = new FileReader();
@@ -72,24 +107,44 @@ function MyForm(props) {
             sendFormData.append("name", data.name);
             sendFormData.append("email", data.email);
             sendFormData.append("phone", data.phone);
-            sendFormData.append("position", data.radio);
-            sendFormData.append("photo", 'https://ino.pp.ua/assets/images/photo/' + data.file[0].name);
-            sendFormData.append("file", data.file[0]);
+            sendFormData.append("position_id", data.radio);
+            sendFormData.append("photo", data.file[0]);
 
-
+            //var formData = new FormData();
+            // file from input type='file' var fileField = document.querySelector('input[type="file"]');
+            //formData.append('position_id', data.radio);
+            //formData.append('name', data.name);
+            //formData.append('email', data.email);
+            //formData.append('phone', data.phone);
+            //formData.append('photo', fileField.files[0]);
+            fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
+                {
+                    method: 'POST',
+                    body: sendFormData,
+                    headers: {
+                        'Token': 'eyJpdiI6ImhEQWpvdzVcL1Rkb3NySUYxVlBaYmN3PT0iLCJ2YWx1ZSI6IlRKd29wTUNlcnhRY1pSSWFGb2FvZTVxTGJ4NkxWODl4QXRCNXM5TlwvZHVxUUFGUkN2b2RIblFYR3YwbFBRa011aFwvTDBTdURQQlJIZEIyM0xvZmwxRkE9PSIsIm1hYyI6ImNmOWUwNWYzNTNmZDg2OWE0ZDRkYjI4MTc3OGEzYWU1NTgyMmVmMDY4YjliYTg1OThiZjY0ZDYzZDgxZDlmNWMifQ==', // get token with GET api/v1/token method
+                    },
+                })
+                .then(function(response) { return response.json(); })
+                .then(function(data) { console.log(data); if(data.success) {
+                    // process success response
+                } else {
+                    // proccess server errors
+                }
+                }) .catch(function(error) {
+                // proccess network errors
+            });
+            debugger;
+/*
             const respost = await axios({
                 method: 'post',
-                //url: 'https://ino.pp.ua/rest/login.php',
-                url: 'https://ino.pp.ua/rest/working',
+                url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+                //url: 'https://ino.pp.ua/rest/working',
                 data: sendFormData,
                 //data: `data=${data}`,
-                crossdomain: true,
-                params: {
-                    p: 'PiozdolgiduMRZvadwienudaW287Q==',
-                },
+
                 headers: {
-                    'Content-Language': 'en, ase, ua',
-                    'Content-Type': 'multipart/form-data',
+                    'Token': token,
                 },
             });
             //console.log(respost.data);
@@ -98,6 +153,9 @@ function MyForm(props) {
                 alert(JSON.stringify(`${respost.data.success}, id item: ${respost.data.object.id}`));
                 //debugger;
             }
+*/
+
+
         } catch (error) {
             // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки
             console.log(error);
@@ -106,7 +164,7 @@ function MyForm(props) {
 
         dispatch({type: WORKING_LIST_CLEAR});                           // очистить список items
         dispatch({type: WORKING_SET_CURRENT_NONE, payload: true });     // флаг вывода кнопки Показать еще
-        dispatch({type: WORKING_SET_CURRENT_PAGE, payload: 0 });        // текущая страница
+        dispatch({type: WORKING_SET_CURRENT_PAGE, payload: 1 });        // текущая страница
         //dispatch({type: WORKING_SET_TOTAL_PAGE, payload: 0 });          // кол-во полученных пользователей
 
         dispatch({type: WORKING_SET_CURRENT_END, payload: true });      // флаг последней страницы
@@ -120,7 +178,7 @@ function MyForm(props) {
         setNameInput('');
         setEmailInput('');
         setPhoneInput('');
-        setRadio('Frontend developer');
+        setRadio('Lawyer');
         setNamePhoto('');
         setImage('');
 
@@ -172,17 +230,22 @@ function MyForm(props) {
     }
     //console.log('errors: ', errors);
 
+
+
+
+
+
+
     return (
 
         <form onSubmit={handleSubmit(onSubmit)} onChange={onChange}>
-
             <ul>
                 <li>
                     <div className="request-grid">
                         <label className={`request-label ${errors.name ? "border-error" : null}`}>
                             <input type="text" name="name" value={nameInput}
                                    className="request-input" placeholder={request.name}
-                                   {...register('name', {required: true, minLength: 3})}
+                                   {...register('name', {required: true, minLength: 2, maxLength: 60})}
                             />
                         </label>
                         {errors.name &&
@@ -194,44 +257,47 @@ function MyForm(props) {
                 </li>
                 <li>
                     <div className="request-grid">
-                        <label className={`request-label ${errors.email ? "border-error" : null}`}>
+                        <label className={`request-label ${errors.email && !errors.name? "border-error" : null}`}>
                             <input type="email" name="email" value={emailInput}
                                    className="request-input" placeholder={request.email}
                                    {...register("email", {
-                                       required: true,
+                                       required: true, minLength: 2, maxLength: 100,
                                        pattern: {
-                                           value: /\S+@\S+\.\S+/,
+                                           value: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/,
                                        }
                                    })}
                             />
                         </label>
-                        {errors.email &&
-                        <div className="request-grid-label text-error">Введите правильно Email</div>
+                        {emailInput && errors.email &&
+                            <div className="request-grid-label text-error">Введите правильно Email</div>
+                        }
+                        {!emailInput && errors.email && emailInput && !errors.name &&
+                            <div className="request-grid-label text-error">Введите правильно Email</div>
                         }
                     </div>
                 </li>
 
                 <li>
                     <div className="request-grid">
-                        <label className={`request-label ${errors.phone ? "border-error" : null}`}>
+                        <label className={`request-label ${errors.phone && !errors.name && !errors.email? "border-error" : null}`}>
 
                             <InputMask
                                 className="request-input" placeholder={request.phone}
-                                mask='+38 999 999-99-99'
+                                mask='+380999999999'
                                 value={phoneInput}
                                 onChange={props.onChange}
                                 {...register('phone', {
                                     // eslint-disable-next-line
-                                    required: true, pattern:/^\+?3?8?([\s\.-]\d{3}[\s\.-]\d{3}[\s\.-]\d{2}[\s\.-]\d{2})$/
+                                    required: true, pattern:/^[\+]{0,1}380([0-9]{9})$/
                                 })}
                             />
 
                         </label>
-                        {errors.phone &&
-                        <div className="request-grid-label text-error">Введите номер телефона +38 XXX XXX-XX-XX</div>
+                        {errors.phone && !errors.name && !errors.email &&
+                            <div className="request-grid-label text-error">Введите номер телефона +380XXXXXXXXXX</div>
                         }
                         {!errors.phone && messagePhoto &&
-                        <div className="request-grid-label">+38 XXX XXX-XX-XX</div>
+                            <div className="request-grid-label">+380XXXXXXXXXX</div>
                         }
 
                     </div>
@@ -242,37 +308,16 @@ function MyForm(props) {
                         {request.radioTitle}
                     </div>
 
-                    <div className="request-radio">
 
-                        {request.radioItem.map((request) => (
+                        <MyRadio positions={positions} radio={radio} setRadio={setRadio} register={register}/>
 
-                            <div className="custom-radio" key={request._id}>
-                                <input type="radio" name="radio" id={`radio${request._id}`}
-                                       value={request.radiotext}
-                                       checked={radio === request.radiotext}
-                                       onChange={(e)=>{setRadio(e.target.value)}}
-
-                                    // eslint-disable-next-line
-                                       //defaultChecked={request._id == radioInput ? "checked": null}
-                                       {...register('radio', {required: true})}
-                                />
-                                <label htmlFor={`radio${request._id}`}>
-                                    {request.radiotext}
-                                </label>
-                            </div>
-
-
-                        ))}
-
-                    </div>
-
-                </li>
+                 </li>
                 <li>
                     {image ? <img src={image} width="200" alt="" /> : null}
                     <div className="request_upload">
                         <div className="mask-wrapper">
                             <div className="mask">
-                                <button className={`send-file ${errors.file ? "border-error" : "send-file-active"}`}>
+                                <button className={`send-file ${errors.file && !errors.phone && !errors.name && !errors.email? "border-error" : "send-file-active"}`}>
                                     Upload
                                 </button>
                                 <input className="fileInputText active" type="text"
@@ -280,7 +325,7 @@ function MyForm(props) {
                                        value={namePhoto ? namePhoto : ''}
 
                                 />
-                                {errors.file &&
+                                {errors.file && !errors.phone && !errors.name && !errors.email &&
                                 <div className="request-grid-label text-error default">
                                     Загрузите фото
                                 </div>
@@ -305,4 +350,43 @@ function MyForm(props) {
         </form>
 
     );
+}
+
+function MyRadio(props) {
+    const { positions, radio, setRadio, register } = props;
+    // eslint-disable-next-line
+    if(!positions || positions.positions.length == 0) return <LoadingBox></LoadingBox>
+
+    return (
+
+        <div className="request-radio">
+
+            {positions.positions.map((position) => (
+
+                <div className="custom-radio" key={position.id}>
+                    <input type="radio" name="radio" id={`radio${position.id}`}
+                           value={position.id}
+                            // eslint-disable-next-line
+                           checked={radio == position.id}
+                           onChange={(e) => {
+                               setRadio(e.target.value)
+                           }}
+
+                        // eslint-disable-next-line
+                        //defaultChecked={request._id == radioInput ? "checked": null}
+                           {...register('radio', {required: true})}
+                    />
+                    <label htmlFor={`radio${position.id}`}>
+                        {position.name}
+                    </label>
+                </div>
+
+
+
+            ))}
+
+        </div>
+
+    )
+
 }

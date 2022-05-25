@@ -55,21 +55,23 @@ function Working(props) {
         //setCurrentPage( prevState => prevState + 1);            // увеличиваем текущую страницу на 1
         const pageActive = Math.floor(total_Page / currentItem);    // определяем сколько всего активных страниц
 
-        if(current_Page !== 0 && pageActive <= current_Page ) {
+        if(current_Page !== 1 && pageActive <= current_Page ) {
             dispatch({type: WORKING_SET_CURRENT_END, payload: false });
             //setCurrentEnd(false);                               // устанавливаем признак последней страницы
         }
-        if(current_Page !== 0 && pageActive <= current_Page+1 ) {
+        if(current_Page !== 1 && pageActive <= current_Page+1 ) {
             dispatch({type: WORKING_SET_CURRENT_NONE, payload: false });
             //setCurrentNone(false);                              // устанавливаем признак не вывода кнопки
         }
-        debugger;
+
 
         console.log('current_Page ' + current_Page + '-' + current_None );
 
         dispatch({type: WORKING_SET_FETCHING, payload: true });
         //setFetching(true);
         console.log('scrool');
+
+        //debugger;
     }
 
     return (

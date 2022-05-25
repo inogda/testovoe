@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6da3216f-bdf5-4229-8be4-91742c960ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Working.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,7 @@
       <workItem from="1653034135489" duration="51096000" />
       <workItem from="1653223082938" duration="101000" />
       <workItem from="1653223214554" duration="160000" />
-      <workItem from="1653223382442" duration="73712000" />
+      <workItem from="1653223382442" duration="113869000" />
     </task>
     <task id="LOCAL-00001" summary="testovoe step 8 pagination">
       <created>1652705391332</created>
@@ -87,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653405845944</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testovoe step 11 form end">
+      <created>1653427555902</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653427555903</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +117,8 @@
     <MESSAGE value="testovoe step 8 pagination" />
     <MESSAGE value="testovoe step 9 form validate" />
     <MESSAGE value="testovoe step 10 form send" />
-    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 10 form send" />
+    <MESSAGE value="testovoe step 11 form end" />
+    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 11 form end" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -119,6 +128,12 @@
           <line>39</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/RequestForm.js</url>
+          <line>273</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

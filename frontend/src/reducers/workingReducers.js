@@ -10,7 +10,7 @@ import {
     WORKING_SET_CURRENT_NONE,
     WORKING_SET_TOTAL_PAGE,
     WORKING_SET_CURRENT_PAGE,
-    WORKING_SET_FETCHING
+    WORKING_SET_FETCHING, WORKING_POSITIONS_REQUEST, WORKING_POSITIONS_SUCCESS, WORKING_POSITIONS_FAIL,
 } from "../constants/workingConstants";
 
 
@@ -20,11 +20,12 @@ export const workingListReducer = (
         loading: true,          // вывод прелоадера
         fetching: true,         // обновить список items
         working: [],            // Массив items
+        positions: [],            // Массив items
         currentItem: 6,         // кол-во выводимых за раз пользователей
         current_End: true,      // флаг последней страницы ставим false
         current_None: true,     // флаг вывода кнопки Показать еще
         total_Page: 0,          // кол-во полученных пользователей
-        current_Page: 0,        // текущая страница
+        current_Page: 1,        // текущая страница
     },
     action
 ) => {
@@ -77,3 +78,4 @@ export const workingDetailsReducer = (
     }
 
 }
+

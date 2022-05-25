@@ -4,7 +4,8 @@ import {
     WORKING_DETAILS_SUCCESS,
     WORKING_LIST_FAIL,
     WORKING_LIST_REQUEST,
-    WORKING_LIST_SUCCESS, WORKING_SET_FETCHING,
+    WORKING_LIST_SUCCESS,
+    WORKING_SET_FETCHING,
     WORKING_SET_TOTAL_PAGE
 } from "../constants/workingConstants";
 import axios from "axios-proxy-fix";
@@ -23,7 +24,31 @@ export const listWorking = (
 
     try {
         if(fetching === true && current_End === true) {
+/*
+            fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=5')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    console.log(data);
+                    if(data.success) {
+                        // process success response
+                    } else {
+                        // proccess server errors
+                    }
+                })
+*/
 
+
+            // если асинхронній запрос успешний то делаю диспатч на вывод данных
+             const { data } = await axios({
+                method: 'get',
+                url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+                params: {
+                    page: current_Page,
+                    count: currentItem,
+                }
+            });
+
+            /*
             // если асинхронній запрос успешний то делаю диспатч на вывод данных
             const { data } = await axios({
                 method: 'get',
@@ -35,12 +60,16 @@ export const listWorking = (
                     limit: currentItem,
                 }
             });
-            dispatch({type: WORKING_SET_TOTAL_PAGE, payload: data.total });
+            */
+
+
+            dispatch({type: WORKING_SET_TOTAL_PAGE, payload: data.total_users });
 
             //const { data } = await axios.get('https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287');
             //console.log('scrool ' + current_Page + '-' + data.total/currentItem );
 
-            dispatch({type: WORKING_LIST_SUCCESS, payload: data.results });
+            dispatch({type: WORKING_LIST_SUCCESS, payload: data.users });
+            //debugger;
         }else{
             dispatch({type: WORKING_LIST_SUCCESS, payload: [] });
         }
@@ -76,3 +105,4 @@ export const detailsWorking = (productId) => async (dispatch) => {
         dispatch({type: WORKING_DETAILS_FAIL, payload: error.message });
     }
 }
+
