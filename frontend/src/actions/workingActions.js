@@ -1,4 +1,5 @@
 import {
+    CLEAR_ERRORS,
     WORKING_DETAILS_FAIL,
     WORKING_DETAILS_REQUEST,
     WORKING_DETAILS_SUCCESS,
@@ -18,27 +19,12 @@ export const listWorking = (
     fetching,
     ) => async (dispatch) => {
 
-
-    //console.log('scrool ' + current_Page + '-' + fetching);
-    dispatch({type: WORKING_LIST_REQUEST});
-
     try {
+        dispatch({type: WORKING_LIST_REQUEST});
+
         if(fetching === true && current_End === true) {
-/*
-            fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=5')
-                .then(function(response) { return response.json(); })
-                .then(function(data) {
-                    console.log(data);
-                    if(data.success) {
-                        // process success response
-                    } else {
-                        // proccess server errors
-                    }
-                })
-*/
 
-
-            // если асинхронній запрос успешний то делаю диспатч на вывод данных
+            // если асинхронный запрос успешний то делаю диспатч на вывод данных
              const { data } = await axios({
                 method: 'get',
                 url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
@@ -49,6 +35,7 @@ export const listWorking = (
             });
 
             /*
+            // Запрос на мой сервер
             // если асинхронній запрос успешний то делаю диспатч на вывод данных
             const { data } = await axios({
                 method: 'get',
@@ -62,18 +49,11 @@ export const listWorking = (
             });
             */
 
-
             dispatch({type: WORKING_SET_TOTAL_PAGE, payload: data.total_users });
-
-            //const { data } = await axios.get('https://ino.pp.ua/rest/working?p=Piondolgidra.Zvadwiensda-287');
-            //console.log('scrool ' + current_Page + '-' + data.total/currentItem );
-
             dispatch({type: WORKING_LIST_SUCCESS, payload: data.users });
-            //debugger;
         }else{
             dispatch({type: WORKING_LIST_SUCCESS, payload: [] });
         }
-        //debugger;
 
     } catch (error) {
         // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки
@@ -85,24 +65,41 @@ export const listWorking = (
 }
 
 
-export const detailsWorking = (productId) => async (dispatch) => {
-    dispatch({type: WORKING_DETAILS_REQUEST, payload: productId });
+// Create item users
+export function createWorking(sendFormData, token) {
+    return function(dispatch) {
+            return axios({
+                method: 'post',
+                url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+                data: sendFormData,
+                headers: {
+                    'Token': token,
+                },
+            });
+    }
+};
 
+// details user ID
+export const detailsWorking = (userId) => async (dispatch) => {
     try {
+        dispatch({type: WORKING_DETAILS_REQUEST, payload: userId });
         // если асинхронній запрос успешний то делаю диспатч на вывод данных
         const { data } = await axios({
             method: 'get',
-            url: `https://ino.pp.ua/rest/working/${productId}`,
-            //url: `https://ino.pp.ua/rest/working/1`,
-            headers: { 'Content-Type': 'application/json', 'Content-Language': 'en, ase, ua', },
-            params: { p: 'PiozdolgiduMRZvadwienudaW287Q==' }
+            //url: `https://ino.pp.ua/rest/working/${userId}`,
+            url: `https://frontend-test-assignment-api.abz.agency/api/v1/users/${userId}`,
+            //headers: { 'Content-Type': 'application/json', 'Content-Language': 'en, ase, ua', },
+            //params: { p: 'PiozdolgiduMRZvadwienudaW287Q==' }
         });
-
-        dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.object });
-
+        //dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.object });
+        dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.user });
     } catch (error) {
         // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки
         dispatch({type: WORKING_DETAILS_FAIL, payload: error.message });
     }
 }
 
+// Clearing Errors
+export const clearErrors = () => async (dispatch) => {
+    dispatch({ type: CLEAR_ERRORS });
+};

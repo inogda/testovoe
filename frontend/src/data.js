@@ -2,7 +2,7 @@ const data = {
     footerTitle:'© Copyright © inogda, 2022 Все права защищены',
     header: {
         title:'Home',
-        logo: '/img/logo.svg',
+        logo: '../img/Logo.svg',
         buttonLeft:'Users',
         buttonRight:'Sign up',
     },
@@ -13,6 +13,7 @@ const data = {
             'll be building web interfaces with accessibility in mind. They should also be ' +
             'excited to learn, as the world of Front-End Development keeps evolving.',
         image:'./img/Rectangle.png',
+        image_thumb:'./img/RectangleThumb.png',
 
     },
     working: {

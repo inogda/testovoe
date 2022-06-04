@@ -5,7 +5,7 @@ function WorkingItem(props) {
     return (
         <div key={working.id} className="list-item">
             <a href={`/working/${working.id}`}>
-                <img className="list-item-img" src={working.photo}
+                <img className="list-item-img" src={working.photo} width="70" height="70"
                      alt={working.name}/>
             </a>
             <a href={`/working/${working._id}`}>

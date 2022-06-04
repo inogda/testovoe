@@ -1,9 +1,10 @@
 import React from 'react';
+import Preloader from '../img/Preloader.png';
 
 function LoadingBox(props) {
     return (
         <div>
-            <img src="../img/Preloader.png" alt="preloader"/>
+            <img src={Preloader} alt="preloader"/>
             Loading...
         </div>
     );

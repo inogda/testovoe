@@ -1,5 +1,5 @@
 import React from 'react';
-//import ReactLogo from '../../public/img/Logo.svg';  //<ReactLogo/>
+import reactLogo from '../img/Logo.svg';
 //<img src={header.logo} alt="logo"/>
 
 function Header(props) {
@@ -9,8 +9,7 @@ function Header(props) {
             <div className="header-row">
                 <div className="header-row__logo">
                     <a href="/" title={header.title}>
-
-                        <img src={header.logo} alt="logo"/>
+                        <img src={reactLogo} alt="logo" width="104" height="26"/>
                     </a>
                 </div>
                 <div className="header-row__login">

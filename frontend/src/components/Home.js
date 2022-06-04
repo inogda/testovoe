@@ -1,7 +1,9 @@
 import React from 'react';
+import im3 from '../img/Rectangle.webp';
 
 function Home(props) {
     const { homeBlock } = props;
+
     return (
         <div className="container">
             <div className="home-block">
@@ -25,11 +27,12 @@ function Home(props) {
                 </div>
 
                 <div className="home__bg-img">
-                    <img src={homeBlock.image} alt="Background cover"/>
+                    <img src={im3} alt="Background cover" />
                 </div>
             </div>
         </div>
     );
 }
+
 
 export default Home;

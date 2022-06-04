@@ -1,9 +1,8 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunk from "redux-thunk";
-import {positionsDetailsReducer, workingDetailsReducer, workingListReducer} from "./reducers/workingReducers";
+import { workingDetailsReducer, workingListReducer} from "./reducers/workingReducers";
 
-const initialState = {
-};
+const initialState = {};
 
 const reducer = combineReducers({
     workingList: workingListReducer,

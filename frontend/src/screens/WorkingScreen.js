@@ -4,27 +4,29 @@ import {useDispatch, useSelector} from "react-redux";
 
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import {detailsWorking} from "../actions/workingActions";
+import {clearErrors, detailsWorking} from "../actions/workingActions";
 
 
 function WorkingScreen(props) {
 
-
-    //const params=useParams();
-    //const productId=params.id;
-    //const navigate=useNavigate();
-    //const productId=1;
-
     const dispatch = useDispatch();
     const params=useParams();
-    const productId=params.id;
+    const userId=params.id;
 
     const workingDetails = useSelector((state) => state.workingDetails);
-    const { loading, error, details } = workingDetails;
+    const {
+        loading,
+        error,
+        details
+    } = workingDetails;
 
     useEffect(() => {
-        dispatch( detailsWorking(productId) );
-    }, [dispatch, productId]);
+        if (error) {
+            alert(error);
+            dispatch(clearErrors());
+        }
+        dispatch( detailsWorking(userId) );
+    }, [dispatch, userId, error]);
 
     return (
         <div className="list-item">
@@ -33,7 +35,7 @@ function WorkingScreen(props) {
             </Link>
 
             {loading ? (
-                <LoadingBox></LoadingBox>
+                <LoadingBox/>
             ) : error ? (
                 <MessageBox variant="error">{error}</MessageBox>
             ) : (
@@ -56,10 +58,6 @@ function WorkingScreen(props) {
                     </div>
                 </div>
             )}
-
-
-
-
         </div>
     );
 }

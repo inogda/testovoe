@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import { useForm} from "react-hook-form";
 import InputMask from "react-input-mask";
-import axios from "axios-proxy-fix";
 import {useDispatch} from "react-redux";
 import {
     WORKING_LIST_CLEAR,
@@ -11,26 +10,25 @@ import {
     WORKING_SET_FETCHING,
 } from "../constants/workingConstants";
 import LoadingBox from "./LoadingBox";
-
+import useTokenData from "../hooks/get-token-data";
+import usePositionsData from "../hooks/get-positions-data";
+import { createWorking} from "../actions/workingActions";
 
 
 function RequestForm(props) {
-
-
-
     const { request } = props;
     return (
         <div className="container">
             <h2 className="request__title">
                 {request.title}
             </h2>
-
             <MyForm request={request} />
-
         </div>
     );
 }
 export default RequestForm;
+
+
 
 function MyForm(props) {
     const { request } = props;
@@ -44,44 +42,24 @@ function MyForm(props) {
     const dispatch = useDispatch();
 
 
+    // получаем токен
+    const {
+        token,
+    } = useTokenData();
+    //console.log(token);
 
-
-
-    const [positions, setPositions] = useState();
-
-    useEffect(() => {
-        const apiUrl = 'https://frontend-test-assignment-api.abz.agency/api/v1/positions';
-        axios.get(apiUrl).then((resp) => {
-            const allPersons = resp.data;
-            setPositions(allPersons);
-        });
-    }, [setPositions]);
-
-
+    // получаем массив positions
+    const {
+        positions,
+        loading,
+    } = usePositionsData();
     //console.log(positions);
-
-
-    //debugger;
-
-
-
 
 
     const [nameInput, setNameInput]   = useState('');     // задали поле ввода input для name
     const [emailInput, setEmailInput] = useState('');     // задали поле ввода input для email
     const [phoneInput, setPhoneInput] = useState('');     // задали поле ввода input для phone
-
-
-
     const [radio,setRadio] = useState(1); // задали поле ввода input для radio
-
-
-
-
-
-//console.log(respost.data);
-
-
     const [image, setImage] = useState();
     const [namePhoto, setNamePhoto] = useState();
     const [messagePhoto, setMessagePhoto] = useState(true);
@@ -96,8 +74,6 @@ function MyForm(props) {
     }
 
 
-
-
     const onSubmit = async (data, e) => {
         e.preventDefault();
         //console.log('отправлено ', data );
@@ -110,93 +86,60 @@ function MyForm(props) {
             sendFormData.append("position_id", data.radio);
             sendFormData.append("photo", data.file[0]);
 
-            //var formData = new FormData();
-            // file from input type='file' var fileField = document.querySelector('input[type="file"]');
-            //formData.append('position_id', data.radio);
-            //formData.append('name', data.name);
-            //formData.append('email', data.email);
-            //formData.append('phone', data.phone);
-            //formData.append('photo', fileField.files[0]);
-            fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users',
-                {
-                    method: 'POST',
-                    body: sendFormData,
-                    headers: {
-                        'Token': 'eyJpdiI6ImhEQWpvdzVcL1Rkb3NySUYxVlBaYmN3PT0iLCJ2YWx1ZSI6IlRKd29wTUNlcnhRY1pSSWFGb2FvZTVxTGJ4NkxWODl4QXRCNXM5TlwvZHVxUUFGUkN2b2RIblFYR3YwbFBRa011aFwvTDBTdURQQlJIZEIyM0xvZmwxRkE9PSIsIm1hYyI6ImNmOWUwNWYzNTNmZDg2OWE0ZDRkYjI4MTc3OGEzYWU1NTgyMmVmMDY4YjliYTg1OThiZjY0ZDYzZDgxZDlmNWMifQ==', // get token with GET api/v1/token method
-                    },
-                })
-                .then(function(response) { return response.json(); })
-                .then(function(data) { console.log(data); if(data.success) {
-                    // process success response
-                } else {
-                    // proccess server errors
-                }
-                }) .catch(function(error) {
-                // proccess network errors
-            });
-            debugger;
-/*
-            const respost = await axios({
-                method: 'post',
-                url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-                //url: 'https://ino.pp.ua/rest/working',
-                data: sendFormData,
-                //data: `data=${data}`,
+            // добавляем запись в базу пользователя
+            const datapost = dispatch(createWorking(sendFormData, token));
+            datapost
+            .then(response => {
+                console.log(response.data);
 
-                headers: {
-                    'Token': token,
-                },
-            });
-            //console.log(respost.data);
-            // eslint-disable-next-line
-            if(respost.data.success == true){
-                alert(JSON.stringify(`${respost.data.success}, id item: ${respost.data.object.id}`));
-                //debugger;
-            }
-*/
+                debugger;
+                alert(JSON.stringify(`${response.data.message}, id item: ${response.data.user_id}`));
 
+                // диспатчим WORKING
+                dispatch({type: WORKING_LIST_CLEAR});                           // очистить список items
+                dispatch({type: WORKING_SET_CURRENT_NONE, payload: true });     // флаг вывода кнопки Показать еще
+                dispatch({type: WORKING_SET_CURRENT_PAGE, payload: 1 });        // текущая страница
+                //dispatch({type: WORKING_SET_TOTAL_PAGE, payload: 0 });          // кол-во полученных пользователей
+
+                dispatch({type: WORKING_SET_CURRENT_END, payload: true });      // флаг последней страницы
+                dispatch({type: WORKING_SET_FETCHING, payload: true });         // обновить список items
+
+                // перемещаем скрол к началу вывода WORKING
+                let scroll = document.getElementById('scrolledBlock');
+                scroll.scrollIntoView();
+
+                // обнуляем форму
+                reset({ name: '',  email: '',  phone: '',  radio: '',  file: '', })
+                setNameInput('');
+                setEmailInput('');
+                setPhoneInput('');
+                setRadio(1);
+                setNamePhoto('');
+                setImage('');
+
+            })
+            .catch(function (error) {
+                // если ошибка то выводим сообщение про ошибку
+                alert(JSON.stringify(`error - ${error.response.data.message}`));
+                console.log(error);
+            });
 
         } catch (error) {
-            // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки
+            // если запрос не прошел, то делаю диспатч на вывод ошибки
             console.log(error);
         }
 
 
-        dispatch({type: WORKING_LIST_CLEAR});                           // очистить список items
-        dispatch({type: WORKING_SET_CURRENT_NONE, payload: true });     // флаг вывода кнопки Показать еще
-        dispatch({type: WORKING_SET_CURRENT_PAGE, payload: 1 });        // текущая страница
-        //dispatch({type: WORKING_SET_TOTAL_PAGE, payload: 0 });          // кол-во полученных пользователей
-
-        dispatch({type: WORKING_SET_CURRENT_END, payload: true });      // флаг последней страницы
-        dispatch({type: WORKING_SET_FETCHING, payload: true });         // обновить список items
-
-        let scroll = document.getElementById('scrolledBlock');
-        scroll.scrollIntoView();
-
-
-        reset({ name: '',  email: '',  phone: '',  radio: '',  file: '', })
-        setNameInput('');
-        setEmailInput('');
-        setPhoneInput('');
-        setRadio('Lawyer');
-        setNamePhoto('');
-        setImage('');
-
         /*
+        // загрузить файл картинки для моего сервера
         const formData = new FormData();
         formData.append("file", data.file[0]);
-
         const res = await fetch("http://localhost:5000/rest/upload-file.php", {
             method: "POST",
             body: formData,
         }).then((res) => res.json());
         alert(JSON.stringify(`${res.message}, status: ${res.status}`));
         */
-
-        //formData2.append("patronym", "Робертович");
-
-
-
 
     };
 
@@ -218,7 +161,7 @@ function MyForm(props) {
 
         //console.log('отправлено ', file.target.value );
         if(setMessagePhoto){ setMessagePhoto(false); }  // не выводим подсказку телефона
-
+        // вставляем имя файла в input text для имени файла
         if (file.target.files) {
             if (file.target.files.length > 0) {
                 //console.log('картинка ', file.target.files[0].name );
@@ -230,12 +173,6 @@ function MyForm(props) {
     }
     //console.log('errors: ', errors);
 
-
-
-
-
-
-
     return (
 
         <form onSubmit={handleSubmit(onSubmit)} onChange={onChange}>
@@ -243,29 +180,44 @@ function MyForm(props) {
                 <li>
                     <div className="request-grid">
                         <label className={`request-label ${errors.name ? "border-error" : null}`}>
-                            <input type="text" name="name" value={nameInput}
-                                   className="request-input" placeholder={request.name}
-                                   {...register('name', {required: true, minLength: 2, maxLength: 60})}
+                            <input
+                                type="text"
+                                name="name"
+                                value={nameInput}
+                                className="request-input"
+                                placeholder={request.name}
+                                {...register('name', {
+                                    required: true,
+                                    minLength: 2,
+                                    maxLength: 60
+                                })}
                             />
                         </label>
                         {errors.name &&
-                        <div className="request-grid-label text-error">
-                            Обязательное поле не менее 3 символов
-                        </div>
+                            <div className="request-grid-label text-error">
+                                Обязательное поле не менее 3 символов
+                            </div>
                         }
                     </div>
                 </li>
                 <li>
                     <div className="request-grid">
                         <label className={`request-label ${errors.email && !errors.name? "border-error" : null}`}>
-                            <input type="email" name="email" value={emailInput}
-                                   className="request-input" placeholder={request.email}
-                                   {...register("email", {
-                                       required: true, minLength: 2, maxLength: 100,
-                                       pattern: {
-                                           value: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/,
-                                       }
-                                   })}
+                            <input
+                                type="email"
+                                name="email"
+                                value={emailInput}
+                                className="request-input"
+                                placeholder={request.email}
+                                {...register("email", {
+                                    required: true,
+                                    minLength: 2,
+                                    maxLength: 100,
+                                    pattern: {
+                                       // eslint-disable-next-line
+                                       value: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/,
+                                    }
+                                })}
                             />
                         </label>
                         {emailInput && errors.email &&
@@ -282,13 +234,15 @@ function MyForm(props) {
                         <label className={`request-label ${errors.phone && !errors.name && !errors.email? "border-error" : null}`}>
 
                             <InputMask
-                                className="request-input" placeholder={request.phone}
+                                className="request-input"
+                                placeholder={request.phone}
                                 mask='+380999999999'
                                 value={phoneInput}
                                 onChange={props.onChange}
                                 {...register('phone', {
+                                    required: true,
                                     // eslint-disable-next-line
-                                    required: true, pattern:/^[\+]{0,1}380([0-9]{9})$/
+                                    pattern:/^[\+]{0,1}380([0-9]{9})$/
                                 })}
                             />
 
@@ -308,9 +262,18 @@ function MyForm(props) {
                         {request.radioTitle}
                     </div>
 
+                        {loading && <div>Loading</div>}
 
-                        <MyRadio positions={positions} radio={radio} setRadio={setRadio} register={register}/>
-
+                        {!loading && (
+                            <div>
+                                <MyRadio
+                                    positions={positions}
+                                    radio={radio}
+                                    setRadio={setRadio}
+                                    register={register}
+                                />
+                            </div>
+                        )}
                  </li>
                 <li>
                     {image ? <img src={image} width="200" alt="" /> : null}
@@ -320,24 +283,28 @@ function MyForm(props) {
                                 <button className={`send-file ${errors.file && !errors.phone && !errors.name && !errors.email? "border-error" : "send-file-active"}`}>
                                     Upload
                                 </button>
-                                <input className="fileInputText active" type="text"
-                                       placeholder="Upload your photo" disabled
-                                       value={namePhoto ? namePhoto : ''}
+                                <input
+                                    type="text"
+                                    className="fileInputText active"
+                                    placeholder="Upload your photo"
+                                    disabled
+                                    value={namePhoto ? namePhoto : ''}
 
                                 />
                                 {errors.file && !errors.phone && !errors.name && !errors.email &&
-                                <div className="request-grid-label text-error default">
-                                    Загрузите фото
-                                </div>
+                                    <div className="request-grid-label text-error default">
+                                        Загрузите фото
+                                    </div>
                                 }
                             </div>
-                            <input
-                                id="my_file" className="custom-file-input" type="file"
-                                {...register("file", {required: true})}
-                            />
-                            <input type="hidden" name="filename" value={namePhoto ? namePhoto : ''}
-                                   {...register("filename")}
-                            />
+                            <label>
+                                <input
+                                    type="file"
+                                    className="custom-file-input"
+                                    accept="image/jpeg,image/jpg"
+                                    {...register("file", {required: true})}
+                                />
+                            </label>
                         </div>
 
                     </div>
@@ -355,38 +322,34 @@ function MyForm(props) {
 function MyRadio(props) {
     const { positions, radio, setRadio, register } = props;
     // eslint-disable-next-line
-    if(!positions || positions.positions.length == 0) return <LoadingBox></LoadingBox>
+    if(!positions || positions.length == 0) return <LoadingBox></LoadingBox>
 
     return (
 
         <div className="request-radio">
 
-            {positions.positions.map((position) => (
+            {positions.map((position) => (
 
                 <div className="custom-radio" key={position.id}>
-                    <input type="radio" name="radio" id={`radio${position.id}`}
-                           value={position.id}
-                            // eslint-disable-next-line
-                           checked={radio == position.id}
-                           onChange={(e) => {
-                               setRadio(e.target.value)
-                           }}
-
+                    <input
+                        type="radio"
+                        name="radio"
+                        id={`radio${position.id}`}
+                        value={position.id}
                         // eslint-disable-next-line
-                        //defaultChecked={request._id == radioInput ? "checked": null}
-                           {...register('radio', {required: true})}
+                        checked={radio == position.id}
+                        onChange={(e) => {
+                            setRadio(e.target.value)
+                        }}
+
+                        {...register('radio', {required: true})}
                     />
                     <label htmlFor={`radio${position.id}`}>
                         {position.name}
                     </label>
                 </div>
-
-
-
             ))}
-
         </div>
-
     )
 
 }
