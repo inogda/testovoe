@@ -13,6 +13,8 @@ import LoadingBox from "./LoadingBox";
 import useTokenData from "../hooks/get-token-data";
 import usePositionsData from "../hooks/get-positions-data";
 import { createWorking} from "../actions/workingActions";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function RequestForm(props) {
@@ -41,11 +43,8 @@ function MyForm(props) {
 
     const dispatch = useDispatch();
 
-
     // получаем токен
-    const {
-        token,
-    } = useTokenData();
+    const { token } = useTokenData();
     //console.log(token);
 
     // получаем массив positions
@@ -63,6 +62,7 @@ function MyForm(props) {
     const [image, setImage] = useState();
     const [namePhoto, setNamePhoto] = useState();
     const [messagePhoto, setMessagePhoto] = useState(true);
+    const [viewButton, setViewButton] = useState(true);
 
 
     const convert2base64 = file => {
@@ -77,7 +77,8 @@ function MyForm(props) {
     const onSubmit = async (data, e) => {
         e.preventDefault();
         //console.log('отправлено ', data );
-
+        // скрыть кнопку BUTTON submit
+        setViewButton(false);
         try {
             const sendFormData = new FormData();
             sendFormData.append("name", data.name);
@@ -88,12 +89,15 @@ function MyForm(props) {
 
             // добавляем запись в базу пользователя
             const datapost = dispatch(createWorking(sendFormData, token));
+
             datapost
             .then(response => {
                 console.log(response.data);
 
-                debugger;
-                alert(JSON.stringify(`${response.data.message}, id item: ${response.data.user_id}`));
+                toast.error(JSON.stringify(`${response.data.message}, id item: ${response.data.user_id}`), {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+                //alert(JSON.stringify(`${response.data.message}, id item: ${response.data.user_id}`));
 
                 // диспатчим WORKING
                 dispatch({type: WORKING_LIST_CLEAR});                           // очистить список items
@@ -120,7 +124,12 @@ function MyForm(props) {
             })
             .catch(function (error) {
                 // если ошибка то выводим сообщение про ошибку
-                alert(JSON.stringify(`error - ${error.response.data.message}`));
+
+                toast.error(JSON.stringify(`error - ${error.response.data.message}`), {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+
+                //alert(JSON.stringify(`error - ${error.response.data.message}`));
                 console.log(error);
             });
 
@@ -128,7 +137,8 @@ function MyForm(props) {
             // если запрос не прошел, то делаю диспатч на вывод ошибки
             console.log(error);
         }
-
+        // показать кнопку BUTTON submit
+        setViewButton(true);
 
         /*
         // загрузить файл картинки для моего сервера
@@ -142,9 +152,6 @@ function MyForm(props) {
         */
 
     };
-
-
-
 
     const onChange = (file) => {
         // eslint-disable-next-line
@@ -312,7 +319,7 @@ function MyForm(props) {
             </ul>
 
             <div className="request__btn btn-100">
-                <button className="a-btn a-btn-disable">Sign up</button>
+                {viewButton && <button className="a-btn a-btn-disable">Sign up</button>}
             </div>
         </form>
 

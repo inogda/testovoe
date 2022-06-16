@@ -1,6 +1,6 @@
 // get-token-data.js
 import { useEffect, useState} from 'react';
-import axios from 'axios';
+import $api from "../http";
 
 const useTokenData = () => {
     const [token, setToken] = useState('');
@@ -8,15 +8,14 @@ const useTokenData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data: response } = await axios.get('https://frontend-test-assignment-api.abz.agency/api/v1/token');
+                const { data: response } = await $api.get('/token');
+
                 if((response.success === true)) {
                     setToken(response.token);
                 }
-
             } catch (error) {
                 console.error(error)
             }
-
         };
 
         fetchData();

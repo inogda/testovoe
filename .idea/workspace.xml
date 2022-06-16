@@ -2,40 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6da3216f-bdf5-4229-8be4-91742c960ba1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/old.babelrc_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/postcss.config.js_" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/service-worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/get-positions-data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/get-token-data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/post-working-data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/webpack.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/assets/Rectangle.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/http/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/Preloader.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/img/Preloader.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/img/Rectangle.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/img/Rectangle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/workingActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/LoadingBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoadingBox.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RequestForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Working.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Working.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/WorkingItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/workingConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/workingReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/get-positions-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/get-positions-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/get-token-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/get-token-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/post-working-data.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/reducers/workingdetailsReducers.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/WorkingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend/public/assets" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -76,6 +54,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\react\testovoe\frontend\public\assets" />
       <recent name="C:\react\testovoe\frontend" />
       <recent name="C:\react\testovoe\frontend\src\js" />
     </key>
@@ -100,7 +79,8 @@
       <workItem from="1653223382442" duration="114223000" />
       <workItem from="1653548098822" duration="106641000" />
       <workItem from="1654086033963" duration="40732000" />
-      <workItem from="1654274394408" duration="10392000" />
+      <workItem from="1654274394408" duration="10733000" />
+      <workItem from="1655367168984" duration="17711000" />
     </task>
     <task id="LOCAL-00001" summary="testovoe step 8 pagination">
       <created>1652705391332</created>
@@ -137,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653509812862</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="testovoe step 13 abz end">
+      <created>1654325078567</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654325078568</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +148,8 @@
     <MESSAGE value="testovoe step 10 form send" />
     <MESSAGE value="testovoe step 11 form end" />
     <MESSAGE value="testovoe step 12 abz api" />
-    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 12 abz api" />
+    <MESSAGE value="testovoe step 13 abz end" />
+    <option name="LAST_COMMIT_MESSAGE" value="testovoe step 13 abz end" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -170,11 +158,6 @@
           <url>file://$PROJECT_DIR$/frontend/src/components/RequestForm.js</url>
           <line>225</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/hooks/post-working-data.js</url>
-          <line>45</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

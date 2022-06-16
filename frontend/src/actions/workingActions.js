@@ -1,3 +1,4 @@
+import $api from "../http";
 import {
     CLEAR_ERRORS,
     WORKING_DETAILS_FAIL,
@@ -9,8 +10,6 @@ import {
     WORKING_SET_FETCHING,
     WORKING_SET_TOTAL_PAGE
 } from "../constants/workingConstants";
-import axios from "axios-proxy-fix";
-
 
 export const listWorking = (
     currentItem,
@@ -23,16 +22,14 @@ export const listWorking = (
         dispatch({type: WORKING_LIST_REQUEST});
 
         if(fetching === true && current_End === true) {
-
             // если асинхронный запрос успешний то делаю диспатч на вывод данных
-             const { data } = await axios({
-                method: 'get',
-                url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-                params: {
-                    page: current_Page,
-                    count: currentItem,
-                }
-            });
+             const { data } = await $api.get(
+                '/users',
+                 { params: {
+                     page: current_Page,
+                     count: currentItem,
+                 }}
+            );
 
             /*
             // Запрос на мой сервер
@@ -67,15 +64,13 @@ export const listWorking = (
 
 // Create item users
 export function createWorking(sendFormData, token) {
+
     return function(dispatch) {
-            return axios({
-                method: 'post',
-                url: 'https://frontend-test-assignment-api.abz.agency/api/v1/users',
-                data: sendFormData,
-                headers: {
-                    'Token': token,
-                },
-            });
+        const headers = { 'Token': token, };
+        return $api.post(
+            '/users', sendFormData,
+            { headers },
+        );
     }
 };
 
@@ -84,6 +79,9 @@ export const detailsWorking = (userId) => async (dispatch) => {
     try {
         dispatch({type: WORKING_DETAILS_REQUEST, payload: userId });
         // если асинхронній запрос успешний то делаю диспатч на вывод данных
+
+        const { data } = await $api.get('/users/'+userId)
+/*
         const { data } = await axios({
             method: 'get',
             //url: `https://ino.pp.ua/rest/working/${userId}`,
@@ -92,6 +90,8 @@ export const detailsWorking = (userId) => async (dispatch) => {
             //params: { p: 'PiozdolgiduMRZvadwienudaW287Q==' }
         });
         //dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.object });
+*/
+
         dispatch({type: WORKING_DETAILS_SUCCESS, payload: data.user });
     } catch (error) {
         // если асинхронній запрос не прошел, то делаю диспатч на вывод ошибки

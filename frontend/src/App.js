@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import WorkingScreen from "./screens/WorkingScreen";
 import WebFont from "webfontloader";
-//import {Helmet} from "react-helmet";
+import {ToastContainer} from "react-toastify";
 
 function App() {
 
@@ -28,6 +28,7 @@ function App() {
 
 
         <BrowserRouter>
+            <ToastContainer />
             {/*<Helmet>
                 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
                 <script type="text/javascript" src="/js/all2.js"></script>
